@@ -2,7 +2,7 @@ import NewsContext from '../contexts/NewsContext';
 import React from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'https://newsapi.org/v2/';
+const BASE_URL = 'https://newsapi.org/v2';
 const API_kEY = '4968101816aa4e7997ed4be80b9c82b2';
 
 class NewsProvider extends React.Component {
@@ -15,15 +15,20 @@ class NewsProvider extends React.Component {
   // char wota state change garni char wota function xa
 
   getNewsFromAPI = async () => {
-    const response = await axios.get(
-      `https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
-      //`$(BASE_URL)everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
-    );
-    console.log(response.data.articles);
-    this.setState({
-      ...this.state,
-      allNews: response.data.articles,
-    });
+    try {
+      const response = await axios.get(
+        //`https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+        `${BASE_URL}/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+      );
+      console.log(response.data);
+      this.setState({
+        ...this.state,
+        allNews: response.data.articles,
+      });
+    } catch (error) {}
+
+    //console.log(response);
+    //console.log(response.data.articles);
   };
   getSourcesFromAPI = () => {};
   getHeadlinesFromAPI = () => {};

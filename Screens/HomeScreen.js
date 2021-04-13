@@ -12,7 +12,7 @@ const HomeScreen = props => {
     getAllData();
   }, []);
 
-  console.log(newsContext.allNews);
+  // console.log(newsContext.allNews);
   return (
     <View style={styles.Screen}>
       <FlatList
