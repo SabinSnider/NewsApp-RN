@@ -12,6 +12,7 @@ class NewsProvider extends React.Component {
     sources: [],
     newsDetail: {},
   };
+
   // char wota state change garni char wota function xa
 
   getNewsFromAPI = async () => {
@@ -20,18 +21,48 @@ class NewsProvider extends React.Component {
         //`https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
         `${BASE_URL}/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
       );
-      console.log(response.data);
+      //console.log(response);
       this.setState({
         ...this.state,
         allNews: response.data.articles,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
 
-    //console.log(response);
-    //console.log(response.data.articles);
+    // console.log(response.data.title);
   };
-  getSourcesFromAPI = () => {};
-  getHeadlinesFromAPI = () => {};
+  getSourcesFromAPI = async () => {
+    try {
+      const response = await axios.get(
+        //`https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+        `${BASE_URL}/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+      );
+      //console.log(response.data);
+      this.setState({
+        ...this.state,
+        sources: response.data.articles,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getHeadlinesFromAPI = async () => {
+    try {
+      const response = await axios.get(
+        //`https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+        `${BASE_URL}/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
+      );
+      //console.log('headlines',response.data);
+      this.setState({
+        ...this.state,
+        headLines: response.data.articles,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   setNewsDetail = news => {
     this.setState({
