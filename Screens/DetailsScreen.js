@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Card, Title, Paragraph} from 'react-native-paper';
-import {  } from "react-redux";
+import NewsContext from '../store/contexts/NewsContext';
 
 const DetailsScreen = ({route}) => {
   const newsContext = useContext(NewsContext);
@@ -10,21 +10,20 @@ const DetailsScreen = ({route}) => {
     newsContext.getSources();
     newsContext.getHeadlines();
   };
-
+  console.log(newsContext);
   React.useEffect(() => {
-    getAllData();
+    // getAllData();
   }, []);
-
 
   return (
     <View>
-        <Card>
-        <Card.Title title={newsContext.allNews}/>
+      <Card>
+        <Card.Title />
         <Card.Content>
-          <Title> {newsContext}</Title>
+          <Title> {newsContext.newsDetail.title}</Title>
           <Paragraph></Paragraph>
         </Card.Content>
-      </Card> 
+      </Card>
     </View>
   );
 };

@@ -6,7 +6,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 const HomeScreen = props => {
   const newsContext = useContext(NewsContext);
-  //console.log('headings', newsContext.headLines);
+  //console.log('headings', newsContext);
   const getAllData = () => {
     newsContext.getNews();
     newsContext.getSources();

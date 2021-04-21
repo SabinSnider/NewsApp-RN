@@ -1,7 +1,5 @@
 import React from 'react';
-
 import {View, StyleSheet} from 'react-native';
-
 import {Provider as PaperProvider} from 'react-native-paper';
 import MainNavigator from './navigations/RootNavigator';
 import NewsProvider from './store/providers/NewsProvider';

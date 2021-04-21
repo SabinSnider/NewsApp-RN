@@ -29,8 +29,6 @@ class NewsProvider extends React.Component {
     } catch (error) {
       console.log(error);
     }
-
-    // console.log(response.data.title);
   };
   getSourcesFromAPI = async () => {
     try {
@@ -54,7 +52,6 @@ class NewsProvider extends React.Component {
         //`https://newsapi.org/v2/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
         `${BASE_URL}/everything?q=bitcoin&apiKey=4968101816aa4e7997ed4be80b9c82b2`,
       );
-      //console.log('headlines',response.data);
       this.setState({
         ...this.state,
         headLines: response.data.articles,
@@ -67,7 +64,7 @@ class NewsProvider extends React.Component {
   setNewsDetail = news => {
     this.setState({
       ...this.state,
-      newsDetail: {name: 'test'},
+      newsDetail: news,
     });
   };
   render() {
