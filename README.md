@@ -1,2 +1,2 @@
 # NewsApp-RN
-NewsApp with Redux used
+Used NewsApp API to get news data with Redux used.
