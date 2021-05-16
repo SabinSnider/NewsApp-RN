@@ -20,6 +20,7 @@ const HomeScreen = props => {
   return (
     <View style={styles.Screen}>
       {/* <FlatList
+        horizontal = true
         data={newsContext.allNews}
         renderItem={({item}) => (
           <TouchableOpacity onPress={() =>{ navigation.navigate('Details\, {data: item})}}>
@@ -46,22 +47,15 @@ const HomeScreen = props => {
                 <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
               </ListItem.Content>
             </ListItem>
+            <Image
+              style={styles.image}
+              source={{uri:item.urlToImage}}
+                    />
+
           </TouchableOpacity>
         ))}
       </ScrollView>
 
-      {/* <Card>
-        <Card.Title title={newsContext.allNews}/>
-        <Card.Content>
-          <Title></Title>
-          <Paragraph></Paragraph>
-        </Card.Content>
-      </Card> */}
-      {/* <FlatList
-        data={newsContext.headLines}
-        renderItem={({item}) => <Text>{item.source.name}</Text>}
-        keyExtrator={(item, i) => i.toString()}
-        ListEmptyComponent={() => <Text>Loading</Text>}></FlatList> */}
     </View>
   );
 };
